@@ -1,0 +1,21 @@
+#taskCover {
+     padding-top: 50px;
+}
+#maintask {
+     display: flex;
+     justify-content: center;
+}
+#task {
+     border: 2px solid black;
+     width: 50%;
+     font-size: 30px;
+     padding-left: 10px;
+}
+#cancel {
+     background-color: red;
+     width: 5%;
+     text-align: center;
+     display: grid;
+     align-items: center;
+     font-weight: 500
+}

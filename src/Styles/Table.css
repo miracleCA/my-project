@@ -1,0 +1,28 @@
+table {
+     width: 100%;
+     border: 2px solid black;
+}
+thead {
+     padding: 0px;
+     margin: 0px;
+}
+thead td {
+     width: 33.33%;
+     font-weight: bold;
+     font-size: 30px;
+}
+td {
+     border-right: 2px solid black;
+     text-align: center;
+     font-size: 25px;
+     border-bottom: 2px solid black;
+}
+td:last-child {
+     border-right: none;
+}
+form input {
+     width: 50%;
+     place-self: center;
+     padding: 20px;
+     margin: 15px;
+}
