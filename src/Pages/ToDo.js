@@ -1,16 +1,24 @@
 import React, { useState, useRef, createElement } from 'react';
+import { useForm } from 'react-hook-form';
 
 import '../Styles/Todo.css';
 
 function ToDo() {
-  const [newTask, addNewTask] = useState('');
-  const [task, isTask] = useState(false);
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
+  const [aTask, addATask] = useState("");
+/*   const [task, isTask] = useState(false);
+ */
   const tasks = [];
 
-  const cancel = () => {
-    isTask(false)
+  const addTask = () => {
+    tasks.splice(tasks.length - 1, 0, aTask )
+    reset()
   }
+
+/*   const cancel = () => {
+    isTask(false)
+  } */
 
 /*     const addTask = 
     createElement("div", {id: 'taskCover'}, 
@@ -23,14 +31,14 @@ function ToDo() {
   return (
     <div style={{paddingTop: "20px"}}>
       <div style={{display: "flex", justifyContent: "center"}}>
-        <input onChange={(e) => {addNewTask(e.target.value);}} style={{width: "50%", justifySelf: "center", padding: "10px", fontSize: "30px"}} type='text'/>
-        <button onClick={tasks.push(newTask)} style={{backgroundColor: "blue", border: "none", color: "white", width: "5%", fontSize: "20px"}}>Add</button>
+        <input onChange={(e) => addATask(e.target.value)} style={{width: "50%", justifySelf: "center", padding: "10px", fontSize: "30px"}} type='text'/>
+        <button onClick={handleSubmit(addTask)} style={{backgroundColor: "blue", border: "none", color: "white", width: "5%", fontSize: "20px"}}>Add</button>
       </div>
-      {tasks?.map((dat, i) => 
-        <div id='taskCover' key={i}>
+      {tasks.map((dat) => 
+        <div id='taskCover'>
           <div id='maintask'>
             <span id='task'>{dat}</span>
-            <span id='cancel' onClick={tasks[tasks.indexOf(dat)]}>X</span>
+            <span id='cancel' /* onClick={() => tasks.splice(tasks.indexOf(dat), 1)} */>X</span>
           </div>
         </div>
       )}
